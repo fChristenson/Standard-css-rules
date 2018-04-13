@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "css",
+  "version": "",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.1"
+  }
+}

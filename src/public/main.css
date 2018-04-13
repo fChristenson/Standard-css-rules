@@ -1,0 +1,75 @@
+/* Using media queries to override variables */
+
+:root {
+  /* Screens */
+  --tablet: 768px;
+  --dekstop: 1024px;
+  
+  /* Colors */
+  --color-primary: steelblue;
+  --color-body-text: ghostwhite;
+
+  /* Dimensions */
+  --dim-sm: 4px;
+  --dim-md: 8px;
+  --dim-lg: 16px;
+
+  /* font-family */
+  --font-family-primary: Helvetica, Arial, Sans-Serif;
+  --font-family-secondary: Helvetica, Arial, Sans-Serif;
+
+  /* letter-spacing */
+  --letter-spacing-h1: 2px;
+  --letter-spacing-h2: 1px;
+  --letter-spacing-body: 0px;
+
+  /* line-height */
+  --line-height-h1: 28px;
+  --line-height-h2: 28px;
+  --line-height-body: 18px;
+}
+
+/* 
+  This could be a good idea and it could be horrible.
+  
+  If you manage to be consistent this saves a lot of
+  duplication but in my experience you are better of
+  just using the naming convention strategy.
+*/
+@media screen and (min-width: 768px) {
+  :root {
+    /* line-height */
+    --line-height-body: 22px; /* This variable is responsive */
+  } 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-primary);
+  color: var(--color-body-text);
+  padding: var(--dim-md);
+  font-family: var(--font-family-secondary);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body); /* This variable is responsive */
+  max-width: 960px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-primary);
+  padding: var(--dim-lg) 0 var(--dim-sm);
+}
+
+h1 {
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2, h3, h4 {
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+}

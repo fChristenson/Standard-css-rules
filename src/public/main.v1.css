@@ -1,0 +1,78 @@
+/* Using media queries with variable name conventions */
+
+:root {
+  /* Screens */
+  --tablet: 768px;
+  --dekstop: 1024px;
+  
+  /* Colors */
+  --color-primary: steelblue;
+  --color-body-text: ghostwhite;
+
+  /* Dimensions */
+  --dim-sm: 4px;
+  --dim-md: 8px;
+  --dim-lg: 16px;
+
+  /* font-family */
+  --font-family-primary: Helvetica, Arial, Sans-Serif;
+  --font-family-secondary: Helvetica, Arial, Sans-Serif;
+
+  /* letter-spacing */
+  --letter-spacing-h1: 2px;
+  --letter-spacing-h2: 1px;
+  --letter-spacing-body: 0px;
+
+  /* line-height */
+  --line-height-h1: 28px;
+  --line-height-h2: 28px;
+  --line-height-body: 18px;
+  --line-height-body-tablet: 22px; /* Mobile first ftw */
+  --line-height-body-desktop: 22px; /* Mobile first ftw */
+}
+
+/* 
+  This works very well.
+  
+  I suggest we take it one further because
+  we are using tags to do styling with a few
+  rules that will come back and bite us later.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-primary);
+  padding: var(--dim-md);
+  max-width: 960px;
+  /* These are rules you probably will override in other styles */
+  color: var(--color-body-text);
+  font-family: var(--font-family-secondary);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    line-height: var(--line-height-body-desktop);
+  } 
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-primary);
+  padding: var(--dim-lg) 0 var(--dim-sm);
+}
+
+h1 {
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2, h3, h4 {
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+}

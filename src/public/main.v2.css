@@ -1,0 +1,82 @@
+/* Using media queries with variable name conventions and BEM */
+
+:root {
+  /* Screens */
+  --tablet: 768px;
+  --dekstop: 1024px;
+  
+  /* Colors */
+  --color-primary: steelblue;
+  --color-body-text: ghostwhite;
+
+  /* Dimensions */
+  --dim-sm: 4px;
+  --dim-md: 8px;
+  --dim-lg: 16px;
+
+  /* font-family */
+  --font-family-primary: Helvetica, Arial, Sans-Serif;
+  --font-family-secondary: Helvetica, Arial, Sans-Serif;
+
+  /* letter-spacing */
+  --letter-spacing-h1: 2px;
+  --letter-spacing-h2: 1px;
+  --letter-spacing-body: 0px;
+
+  /* line-height */
+  --line-height-h1: 28px;
+  --line-height-h2: 28px;
+  --line-height-body: 18px;
+  --line-height-body-tablet: 22px; /* Mobile first ftw */
+  --line-height-body-desktop: 22px; /* Mobile first ftw */
+}
+
+/* 
+  This creates more duplication but scales to any size
+  of project, it is easy to maintain over time and it
+  is very easy to onboard new developers.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-primary);
+  padding: var(--dim-md);
+  max-width: 960px;
+}
+
+.section {
+  color: var(--color-body-text);
+  padding: var(--dim-md);
+}
+
+.section__h1, .section__h2 {
+  font-family: var(--font-family-primary);
+  padding: var(--dim-lg) 0 var(--dim-sm);
+}
+
+.section__h1 {
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+}
+
+.section__h2 {
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+}
+
+.section__p {
+  line-height: var(--line-height-body);
+  font-family: var(--font-family-secondary);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+@media screen and (min-width: 768px) {
+  .section__p {
+    line-height: var(--line-height-body-desktop);
+  } 
+}
